@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+:root{
+  --income-card-color: #fff;
+  --global-background: #cecece;
+  --income: #00ac33;
+  --expance: #ff3300;
+  --shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--global-background);
+  font-family: poppins;
+}
+
+.container {
+  margin-top: 20px;
+  min-height: 90%;
+  width: fit-content;
+  padding-bottom: 10px;
+}
+
+.balance {
+  margin-top: 20px;
+  width: 30vw;
+  font-weight: 600;
+}
+
+.balance p {
+  font-size: xx-large;
+}
+
+.income-expense{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  background-color:  var(--income-card-color);
+  overflow: hidden;
+  height: 100px;
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+}
+
+.income-expense p{
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+.income p {
+  color: var(--income);
+}
+
+.expense p {
+  color: red;
+}
+
+.form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.credited {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 40% 40% 20% ;
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+.input {
+  width: 90%;
+  font-size: 20px;
+  border-radius: 5px;
+  border: hidden;
+  padding-left: 10px;
+  box-shadow: var(--shadow);
+}
+
+.button{
+  font-size: 15px;
+  font-weight: bolder;
+  border-radius: 5px;
+  border: hidden;
+  box-shadow: var(--shadow);
+}
+
+.button:hover{
+  background: #fff;
+  color: #fff;
+  box-shadow: none;
+}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+.transaction-summary {
+  height: min-content;
+}
+
+.transaction{
+  border: hidden;
+  border-radius: 5px;
+  background-color: #fff;
+  height: 50px;
+  margin-top: 15px;
+  padding-left: 10px;
+  display: grid;
+  width: auto;
+  grid-template-columns: 70% 29% 1%;
+  box-shadow: var(--shadow);
+}
+
+.transaction p {
+  padding-top: 15px;
+}
+
+
+
