@@ -52,12 +52,15 @@ def getHistory():
 @app.route('/addtransaction', methods=['POST'])
 def addTransaction():
     content = request.get_json()
+    print(content)
     previousData = []
     with open(currentMonth + ".json") as f:
         if os.path.getsize(currentMonth+".json") != 0:
             previousData = json.load(f)
     nextId = len(previousData) + 1
     content["id"] = nextId
+    amount =float (content["amount"] )
+    content["amount"] = amount
     previousData.append(content)
     print(previousData)
 
