@@ -34,7 +34,7 @@ function App() {
     currentBalance = totalIncome - totalExpense;
   }
 
-  function addTransaction(name) {
+  function addTransaction(name="") {
     console.log("name: "+ name)
     
     let source = "";
