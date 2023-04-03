@@ -8,8 +8,6 @@ from flask_cors import CORS
 
 from flask import Flask
 
-from Transaction import Transaction
-
 app = Flask(__name__)
 CORS(app)
 
@@ -32,8 +30,6 @@ def hello():
 @app.route('/history', methods=['GET'])
 def getHistory():
     logger.debug("getting history transation")
-    message = ""
-
     try:
         with open(currentMonth + ".json", "r") as f:
             if os.path.getsize(currentMonth + ".json") == 0:
@@ -51,21 +47,22 @@ def getHistory():
 
 @app.route('/addtransaction', methods=['POST'])
 def addTransaction():
-    content = request.get_json()
+    contentData = request.get_json()
+    content = dict(contentData["body"])
     print(content)
     previousData = []
     with open(currentMonth + ".json") as f:
-        if os.path.getsize(currentMonth+".json") != 0:
+        if os.path.getsize(currentMonth + ".json") != 0:
             previousData = json.load(f)
     nextId = len(previousData) + 1
     content["id"] = nextId
-    amount =float (content["amount"] )
+    amount = float(content["amount"])
     content["amount"] = amount
     previousData.append(content)
     print(previousData)
 
     with open(currentMonth + ".json", "w") as f:
-        json.dump( previousData, f)
+        json.dump(previousData, f)
     return previousData
 
 

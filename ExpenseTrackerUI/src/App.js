@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -10,8 +11,7 @@ function App() {
   const [debtSource, setDebtSource] = useState("");
   const [debtMoney, setDebtMoney] = useState("");
 
-  const [trData, setTrData] = useState([])
-  useEffect(() => {
+  useEffect(  ()=> {
     fetch('http://localhost:5000/history')
       .then((response) => response.json())
       .then((data) => {
@@ -20,12 +20,13 @@ function App() {
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  }, [] )
 
 
   let totalIncome = 0;
   let totalExpense = 0;
   let currentBalance = 0;
+
 
   if (posts.length !== 0) {
     totalIncome = posts.reduce((a, v) => (v.category === 'c') ? a + v.amount : a, 0);
@@ -34,14 +35,13 @@ function App() {
   }
 
   function addTransaction(name) {
-
+    console.log("name: "+ name)
+    
     let source = "";
     let amount = "";
     let category = "";
 
     if (name === 'credit') {
-
-
       if (!credSource) {
         window.alert("Missing credit source value!");
       }
@@ -51,8 +51,6 @@ function App() {
       source = credSource;
       amount = credMoney;
       category = "c";
-
-
     } else {
       if (!debtSource) {
         window.alert("Missing debit source value!");
@@ -72,25 +70,28 @@ function App() {
     }
 
     console.log(object)
-
-    fetch('http://localhost:5000/addtransaction', {
-      method: 'POST',
+    
+    axios.post('http://localhost:5000/addtransaction', {
       headers: {
-        "Accept": "application/json",
-        "content-type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(object)
+      body: object
     }).then((result) => {
+      setPosts([result, ...posts])
       console.log(result)
-    })
+    }).catch((err) => {
+      console.log(err.message);
+    });
 
-    console.log("data saved ", object)
+    console.log("data saved")
   }
 
 
 
   return (
+    
     <div className='container'>
+      
       <h2>Expense Tracker</h2>
       <div className='balance'>
         <h4>Your Current Balance</h4>
@@ -129,7 +130,6 @@ function App() {
       <div className='transaction-summary'>
         {(posts.length === 0) ? <h3>No History Found</h3> : posts.map(t => (
           <ul key={t.id}>
-
             <div className='transaction'>
               <p>{t.source}</p>
               <p>&#8377; {t.amount}</p>
