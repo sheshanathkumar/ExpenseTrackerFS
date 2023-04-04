@@ -1,5 +1,10 @@
-ExpenseTrackerBE/.idea
-ExpenseTrackerBE/__pycache__
+ExpenseTrackerBE-python/.idea
+ExpenseTrackerBE-python/__pycache__
+
+ExpenseTrackerBE-java/.gradle
+ExpenseTrackerBE-java/.idea
+ExpenseTrackerBE-java/build
+
 
 ExpenseTrackerUI/.git
 ExpenseTrackerUI/node_modules
