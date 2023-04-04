@@ -1,0 +1,22 @@
+After cloning from git there will be no python plugins inside it. You may need to donwload all.
+Follow these steps
+1-- open command prompt in same folder (\ExpenseTrackerFS)
+2-- cd \ExpenseTrackerBE
+3-- python3 -m virtualenv venv
+4-- .\venv\Scripts\activate
+5-- pip install -r .\requirment.txt
+6-- flask --app main --debug run
+
+after executing last command you will see these message
+2023-04-04 16:48:02,341 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+2023-04-04 16:48:02,341 Press CTRL+C to quit
+2023-04-04 16:48:02,343  * Restarting with stat
+2023-04-04 16:48:02,904  * Debugger is active!
+2023-04-04 16:48:02,913  * Debugger PIN: 501-391-780
+
+
+application execution success
+hit api from postman
+localhost:5000/history
+localhost:5000/my-first-api
