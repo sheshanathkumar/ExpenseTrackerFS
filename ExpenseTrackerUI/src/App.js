@@ -1,5 +1,4 @@
 
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -11,31 +10,32 @@ function App() {
   const [debtSource, setDebtSource] = useState("");
   const [debtMoney, setDebtMoney] = useState("");
 
-  useEffect(  ()=> {
+  useEffect(() => {
     fetch('http://localhost:5000/history')
       .then((response) => response.json())
       .then((data) => {
-        setPosts(data);
+
+        if (data.status !== 500)
+          setPosts(data);
       })
       .catch((err) => {
         console.log(err.message);
       });
-  }, [] )
+  }, [])
 
 
   let totalIncome = 0;
   let totalExpense = 0;
   let currentBalance = 0;
 
-
+  console.log(posts)
   if (posts.length !== 0) {
     totalIncome = posts.reduce((a, v) => (v.category === 'c') ? a + v.amount : a, 0);
     totalExpense = posts.reduce((a, v) => (v.category === 'd') ? a + v.amount : a, 0);
     currentBalance = totalIncome - totalExpense;
   }
 
-  function addTransaction(name="") {
-    console.log("name: "+ name)
+  function addTransaction(name) {
     
     let source = "";
     let amount = "";
@@ -70,28 +70,29 @@ function App() {
     }
 
     console.log(object)
-    
-    axios.post('http://localhost:5000/addtransaction', {
+
+    fetch('http://localhost:5000/addtransaction', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       },
-      body: object
+      body: JSON.stringify(object)
     }).then((result) => {
       setPosts([result, ...posts])
       console.log(result)
     }).catch((err) => {
       console.log(err.message);
     });
-
-    console.log("data saved")
   }
 
 
 
   return (
-    
+
     <div className='container'>
-      
+
       <h2>Expense Tracker</h2>
       <div className='balance'>
         <h4>Your Current Balance</h4>
@@ -133,6 +134,7 @@ function App() {
             <div className='transaction'>
               <p>{t.source}</p>
               <p>&#8377; {t.amount}</p>
+              
               <p style={t.category === 'c' ? { "background": "#00ac33" } : { "background": "red" }}></p>
             </div>
           </ul>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
-:root{
+:root {
   --income-card-color: #fff;
   --global-background: #cecece;
   --income: #00ac33;
@@ -25,7 +25,19 @@ body {
   margin-top: 20px;
   min-height: 90%;
   width: fit-content;
-  padding-bottom: 10px;
+  background-color: #928f8f;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.container h2 {
+  font-weight: bolder;
+  font-size: 65px;
+  text-align: center;
+  background-image: url(coins.gif);
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .balance {
@@ -38,20 +50,20 @@ body {
   font-size: xx-large;
 }
 
-.income-expense{
+.income-expense {
   margin-top: 10px;
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  background-color:  var(--income-card-color);
+  background-color: var(--income-card-color);
   overflow: hidden;
   height: 100px;
   box-shadow: var(--shadow);
   border-radius: 10px;
 }
 
-.income-expense p{
+.income-expense p {
   font-size: x-large;
   font-weight: bolder;
 }
@@ -72,7 +84,7 @@ body {
 .credited {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 40% 40% 20% ;
+  grid-template-columns: 40% 40% 20%;
   margin-bottom: 10px;
   height: 40px;
 }
@@ -86,7 +98,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-.button{
+.button {
   font-size: 15px;
   font-weight: bolder;
   border-radius: 5px;
@@ -94,11 +106,12 @@ body {
   box-shadow: var(--shadow);
 }
 
-.button:hover{
+.button:hover {
   background: #fff;
   color: #fff;
   box-shadow: none;
 }
+
 .button:active {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
@@ -109,7 +122,7 @@ body {
   height: min-content;
 }
 
-.transaction{
+.transaction {
   border: hidden;
   border-radius: 5px;
   background-color: #fff;
@@ -118,7 +131,7 @@ body {
   padding-left: 10px;
   display: grid;
   width: auto;
-  grid-template-columns: 70% 29% 1%;
+  grid-template-columns: 60% 39%  1%;
   box-shadow: var(--shadow);
 }
 
@@ -126,5 +139,7 @@ body {
   padding-top: 15px;
 }
 
-
-
+.transaction img {
+  width: 30px;
+  height: 30px;
+}
