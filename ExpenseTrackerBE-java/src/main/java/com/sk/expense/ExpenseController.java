@@ -1,4 +1,4 @@
-package com.sk.expense.expense;
+package com.sk.expense;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

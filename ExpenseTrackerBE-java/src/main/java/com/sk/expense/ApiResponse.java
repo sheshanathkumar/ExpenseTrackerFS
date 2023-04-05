@@ -1,4 +1,4 @@
-package com.sk.expense.expense;
+package com.sk.expense;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

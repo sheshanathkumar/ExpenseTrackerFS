@@ -1,4 +1,4 @@
-package com.sk.expense.expense;
+package com.sk.expense;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
