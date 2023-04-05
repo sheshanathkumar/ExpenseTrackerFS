@@ -4,6 +4,7 @@ ExpenseTrackerBE-python/__pycache__
 ExpenseTrackerBE-java/.gradle
 ExpenseTrackerBE-java/.idea
 ExpenseTrackerBE-java/build
+ExpenseTrackerBE-java/src/main/resources/static/*
 
 
 ExpenseTrackerUI/.git
