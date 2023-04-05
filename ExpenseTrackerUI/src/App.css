@@ -126,20 +126,30 @@ body {
   border: hidden;
   border-radius: 5px;
   background-color: #fff;
-  height: 50px;
+  height: 40px;
   margin-top: 15px;
   padding-left: 10px;
   display: grid;
   width: auto;
-  grid-template-columns: 60% 39%  1%;
+  grid-template-columns: 60% 29% 10% 1%;
   box-shadow: var(--shadow);
 }
 
 .transaction p {
-  padding-top: 15px;
+  padding-top: 8px;
 }
 
-.transaction img {
-  width: 30px;
-  height: 30px;
+input[type=image] {
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+  -webkit-text-fill-color: transparent;
+  border-radius: 50%;
+  background-color: #ff3300;
 }
+
+input[type=image]:hover{
+  background-color: #3e8e41;
+}
+

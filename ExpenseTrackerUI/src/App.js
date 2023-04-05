@@ -36,7 +36,7 @@ function App() {
   }
 
   function addTransaction(name) {
-    
+
     let source = "";
     let amount = "";
     let category = "";
@@ -80,11 +80,37 @@ function App() {
       },
       body: JSON.stringify(object)
     }).then((result) => {
-      setPosts([result, ...posts])
       console.log(result)
     }).catch((err) => {
       console.log(err.message);
     });
+  }
+
+  function deleteTransaction(id) {
+    console.log(id);
+  
+    fetch(`http://localhost:5000/deleteTransaction?id=${id}`, {
+      method: 'DELETE',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+    }).then( (response) => response.json() )
+    .then( (data) => {
+      console.log(data)
+      let postData = posts;
+      if (data.status === "OK"){
+        
+        postData = postData.filter( x => x.id !== id );
+        console.log( JSON.stringify (postData))
+        setPosts(postData)
+      }
+    } ).catch((err) => {
+      console.log(err.message);
+    });
+
+    console.log(`Transaction id ${id} deleted`)
   }
 
 
@@ -134,7 +160,7 @@ function App() {
             <div className='transaction'>
               <p>{t.source}</p>
               <p>&#8377; {t.amount}</p>
-              
+              <input type='image' src={require("./cancel.png")} alt="" onClick={() => deleteTransaction(t.id)} />
               <p style={t.category === 'c' ? { "background": "#00ac33" } : { "background": "red" }}></p>
             </div>
           </ul>
