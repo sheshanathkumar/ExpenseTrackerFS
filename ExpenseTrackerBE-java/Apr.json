@@ -1,1 +1,1 @@
-[{"id":1,"source":"income","amount":96000.0,"category":"c"},{"id":2,"source":"edu loan","amount":5000.0,"category":"d"},{"id":3,"source":"room rent ","amount":12200.0,"category":"d"},{"id":4,"source":"CC","amount":30000.0,"category":"d"},{"id":5,"source":"rento mojo","amount":1200.0,"category":"d"},{"id":6,"source":"nishu edu","amount":5000.0,"category":"d"},{"id":8,"source":"MF","amount":10000.0,"category":"d"}]
+[{"id":1,"source":"income","amount":96000.0,"category":"c"},{"id":2,"source":"Debt","amount":45000.0,"category":"d"}]
