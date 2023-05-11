@@ -3,6 +3,7 @@
 https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white`)
 
 <br/>
+
 ## Introduction
 An expense tracker app is either web- or phone-based and can help you track a range of expenses. You enter incoming and outgoing money, and the app can help you store and track that information. It can help you track your budget, track your investments, use graphs and charts to show your progress, and keep your business and personal expenses separate.
 
