@@ -9,14 +9,14 @@ An expense tracker app is either web- or phone-based and can help you track a ra
 
 Expense tracker is a basic exense tracking system which can manager all type of your expanse. It tracks your source of income and source of expanse. It also keep eyes on the type of expanse which are irregular and not relevent.
 
-We have uses **Spring** for the backend, where all apis are written and **React** for UI build.
+We have used **Spring** for the backend, where all apis are written and **React** for UI build.
 
 ## How it works
-We have aded 2 types of field. 1 for income and other for expanse. 
+We have aded 2 types of fields. 1 for income and other for expanse. 
 Income part will show how your money credits and expanse will show where your money debited.
 We are keep tracing what is your current balance and how much you have expansed.
 
-Application creates a json file everymonth when ever any transaction happens. Currently we are showing only current months history transaction. Sooner we will add monthly wise transactions, where user can see what transaction they have made till yet.
+Application creates a json file every month when ever any transaction happens. Currently we are showing only current months history transaction. Sooner we will add monthly wise transactions, where user can see what transaction they have made till yet.
 
 ## How to run this app
 ### Run Server side application first
